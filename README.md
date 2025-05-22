@@ -1,12 +1,12 @@
-#Daniel in der Löwengrube
+# Daniel in der Löwengrube
 
 *a game by Lennox Milenkovic
 web implematation by Fabian Lehradt*
 
-###Schnickschnack:
+### Schnickschnack:
 
 **Fabian Lehradt**
 
 [Profil](https://lehradt.github.io/profile)
 
-###Spielregeln & Spielablauf:
+### Spielregeln & Spielablauf:
