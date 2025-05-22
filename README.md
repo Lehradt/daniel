@@ -5,8 +5,6 @@ web implematation by Fabian Lehradt*
 
 ### Schnickschnack:
 
-**Fabian Lehradt**
-
-[Profil](https://lehradt.github.io/profile)
+**[Fabian Lehradt](https://lehradt.github.io/profile)**
 
 ### Spielregeln & Spielablauf:
