@@ -1,0 +1,12 @@
+CREDITS
+--------------------------------------
+Project: Daniel in der Löwengrube
+Ein Spiel von: Lennox Milenkovic
+Web-Umsetzung: Fabian Lehradt
+Datum: 22.05.2025
+--------------------------------------
+Beschreibung: Ein lokales Multiplayer Browser-Spiel.
+--------------------------------------
+Tools: HTML, CSS, JavaScript
+Entwicklung: https://replit.com
+--------------------------------------
