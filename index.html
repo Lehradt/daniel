@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Daniel in der Löwengrube</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="icon" href="/assets/resources/images/icon.png" type="image/png"/>
+  <link rel="apple-touch-icon" href="/assets/resources/images/icon.png" type="image/png"/>
+  <style>
+    * {
+      user-select: none;
+    }
+
+    img {
+      pointer-events: none;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f0e6d2;
+      font-family: "Marker Felt", fantasy;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: relative;
+      width: 100%;
+      height: 100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #F4DFC0;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    #head {
+      display: flex;
+      align-items: center;
+    }
+
+    header img {
+      width: 80px;
+      height: 80px;
+      margin-right: 15px;
+    }
+
+    header h1 {
+      color: #718658;
+      text-shadow: 1px 1px #000000;
+      font-size: 1.8rem;
+    }
+
+    #mark {
+      position: absolute;
+      top: 37.5px;
+      right: 10px;
+      color: #718658;
+      cursor: pointer;
+      font-size: 1.8rem;
+      text-shadow: 1px 1px #000000;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 20px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+
+    #rules {
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      max-height: 80vh;
+      overflow-y: auto;
+      background: #fffdfa;
+      padding: 20px 30px 50px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      z-index: 100;
+      font-size: 0.9rem;
+      color: #333;
+      user-select: text;
+    }
+
+    #rules hr {
+      margin: 20px 0;
+    }
+
+    #rules h2 {
+      margin-bottom: 10px;
+      color: #5a6b37;
+    }
+
+    #rules h3 {
+      margin-top: 10px;
+      margin-bottom: 5px;
+      color: #5a6b37;
+    }
+
+    #rules p {
+      margin: 5px 0 15px;
+      line-height: 1.4;
+    }
+
+
+    #setup,
+    #handover,
+    #roleReveal,
+    #gameplay {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 500px;
+      background: #fffdfa;
+      padding: 30px 40px;
+      box-shadow: 0 0 20px rgb(0 0 0 / 0.15);
+      border-radius: 15px;
+      user-select: none;
+    }
+
+    #setup.active,
+    #handover.active,
+    #roleReveal.active,
+    #gameplay.active {
+      display: flex;
+    }
+
+    input[type="number"] {
+      width: 80px;
+      font-size: 1.2rem;
+      padding: 6px 8px;
+      margin: 15px 0 30px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    input[type="range"] {
+      accent-color: #4a5a20;
+    }
+
+    button {
+      background-color: #718658;
+      border: none;
+      color: white;
+      padding: 12px 28px;
+      font-size: 1.1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+
+    button:hover,
+    button:focus {
+      background-color: #5a6b37;
+      outline: none;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      color: #4a5a20;
+      font-weight: bold;
+    }
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      color: #5a6b37;
+    }
+
+    p {
+      margin-bottom: 30px;
+      font-size: 1rem;
+      color: #444;
+      user-select: text;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 35px;
+      background: #F4DFC0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.85rem;
+      color: #5a6b37;
+      user-select: none;
+      box-shadow: 0 -2px 5px rgb(0 0 0 / 0.1);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div id="head">
+      <img src="/assets/resources/images/icon.png" alt="icon" />
+      <h1>Daniel in der Löwengrube</h1>
+    </div>
+    <i class="fas fa-question-circle" id="mark" title="Regeln anzeigen"></i>
+  </header>
+
+  <main>
+    <section id="setup" class="active">
+      <h2>Wie viele Spieler machen mit?</h2>
+      <input type="range" id="playerCount" min="4" max="6" value="4" step="1" />
+      <p>Spieler: <span id="playerCountDisplay">4</span></p>
+      <button id="startButton">Start</button>
+    </section>
+
+    <section id="handover">
+      <h2>Bitte an den nächsten Spieler übergeben!</h2>
+      <button id="handoverNext">Weiter</button>
+    </section>
+
+    <section id="roleReveal">
+      <h2>Deine Rolle ist:</h2>
+      <h3 id="roleName"></h3>
+      <p id="roleDescription"></p>
+      <input type="text" id="playerNameInput" placeholder="Dein Name"
+        style="margin: 15px 0; padding: 10px; font-size: 1rem;" />
+      <button id="revealNext">Weiter</button>
+    </section>
+
+    <section id="gameplay">
+      <p id="gameStatus"></p>
+      <div id="roleActionContainer" style="margin-top: 20px;"></div>
+      <button id="gameNext">Weiter</button>
+    </section>
+
+    <div id="rules">
+      <h2>Regeln:</h2>
+      <p>
+        <b>Nachtphase:</b><br />
+        Alle schließen die Augen.<br />
+        Der Spielleiter sagt<br />
+        - Engel, öffnet eure Augen. Wen wollt ihr beschützen?<br /><br />
+        - Daniel öffne die Augen. Vor wem möchtest du dich verstecken?<br />
+        - Verräter, öffnet eure Augen. Auf wen zeigt ihr? (Wenn Daniel einen Schutz hat oder sich vor dir versteckst,
+        dann wird auch gesagt, dass die Stimme falsch war)<br />
+        - König, öffne die Augen. Wen willst du verhören? / Wen willst du für die nächste Runde aussetzen?<br /><br />
+
+        <b>Tagphase:</b><br />
+        Alle öffnen die Augen.<br />
+        Der Spielleiter gibt bekannt, was in der Nacht passiert ist (der Engel hat jemanden Schutz gegeben / der König
+        hat
+        jemanden verhört / der König hat jemanden ausgesetzt / die Verräter haben jemanden in die Grube geschmissen –
+        war
+        es Daniel oder nicht Daniel).<br />
+        Diskussion unter allen Spielern: Wer ist Daniel? Wer lügt?<br />
+        Jeder darf Vorschläge machen, wer in die Grube kommt.<br /><br />
+
+        <b>Ziel von Daniel:</b><br />
+        - Beide Verräter in die Grube werfen.<br />
+        - Überleben bis zum Tag 4.<br /><br />
+
+        <b>Ziel von den Verrätern:</b><br />
+        - Herausfinden, wer Daniel ist.<br />
+        - Daniel in die Löwengrube werfen.<br /><br />
+
+        <b>Ziel von den Engeln:</b><br />
+        Daniel beschützen und versuchen, ihn in den Diskussionen unauffällig zu verteidigen (vielleicht versuchen zu
+        sagen,
+        dass andere Daniel sind, damit jemand anders gewählt wird).<br /><br />
+
+        <b>Ziel vom König:</b><br />
+        Er kann entscheiden, ob er versucht, Daniel in die Löwengrube zu werfen oder ihn zu beschützen.
+      </p>
+      <hr />
+      <h3>Rollen:</h3>
+      <div class="iPlayer">
+        <div class="ihead">
+          <h3>Verräter</h3>
+          <img src="/assets/resources/images/imposter.png" alt="Verräter" />
+        </div>
+        <p>
+          <b>Aufgabe:</b><br />
+          Versuche Daniel zu enttarnen und in die Grube zu werfen.<br /><br />
+          <b>Fähigkeit:</b><br />
+          Bei Zustimmung beider Verräter kann eine Person ohne Abstimmung in die Grube geworfen werden.<br />
+          Ist die rausgeworfene Person nicht Daniel, haben die Verräter verloren.
+        </p>
+      </div>
+      <hr />
+      <div class="iPlayer">
+        <div class="ihead">
+          <h3>Daniel</h3>
+          <img src="/assets/resources/images/daniel.png" alt="Daniel" />
+        </div>
+        <p>
+          <b>Aufgabe:</b><br />
+          Versuche, nicht enttarnt zu werden.<br /><br />
+          <b>Fähigkeit:</b><br />
+          Hat jede Runde die Möglichkeit, sich vor einem Verräter zu verstecken.
+        </p>
+      </div>
+      <hr />
+      <div class="iPlayer">
+        <div class="ihead">
+          <h3>König</h3>
+          <img src="/assets/resources/images/koenig.png" alt="König" />
+        </div>
+        <p>
+          <b>Aufgabe:</b><br />
+          Hat die Möglichkeit, entweder Daniel zu beschützen oder dabei zu helfen, ihn in die Grube zu
+          werfen.<br /><br />
+          <b>Fähigkeit:</b><br />
+          Kann einen Spieler pro Zug verhören (seine Rolle wird ihm offenbart).<br />
+          Kann eine Person pro Runde aussetzen lassen.
+        </p>
+      </div>
+      <hr />
+      <div class="iPlayer">
+        <div class="ihead">
+          <h3>Engel</h3>
+          <img src="/assets/resources/images/engel.png" alt="Engel" />
+        </div>
+        <p>
+          <b>Aufgabe:</b><br />
+          Versucht, Daniel zu beschützen (weiß nicht, wer Daniel ist).<br /><br />
+          <b>Fähigkeit:</b><br />
+          Kann jede Runde einem Spieler ein Schild geben (diese Person kann für eine Runde nicht in die Grube geworfen
+          werden).
+        </p>
+      </div>
+    </div>
+  </main>
+  <audio id="backgroundMusic" src="/assets/resources/audio/background.mp3" loop></audio>
+  <footer>
+    <p>Web implementation by Fabian Lehradt</p>
+  </footer>
+
+  <script>
+    const rules = document.getElementById("rules");
+    const mark = document.getElementById("mark");
+    mark.addEventListener("click", () => {
+      if (rules.style.display === "flex") {
+        rules.style.display = "none";
+      } else {
+        rules.style.display = "flex";
+      }
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && rules.style.display === "flex") {
+        rules.style.display = "none";
+      }
+    });
+
+    // DOM-Elemente
+    const setup = document.getElementById("setup");
+    const handover = document.getElementById("handover");
+    const roleReveal = document.getElementById("roleReveal");
+    const gameplay = document.getElementById("gameplay");
+
+    const playerCountInput = document.getElementById("playerCount");
+    const startButton = document.getElementById("startButton");
+    const handoverNext = document.getElementById("handoverNext");
+    const revealNext = document.getElementById("revealNext");
+    const gameNext = document.getElementById("gameNext");
+    const playerCountDisplay = document.getElementById("playerCountDisplay");
+
+    const roleName = document.getElementById("roleName");
+    const roleDescription = document.getElementById("roleDescription");
+    const playerNameInput = document.getElementById("playerNameInput");
+    const gameStatus = document.getElementById("gameStatus");
+    const roleActionContainer = document.getElementById("roleActionContainer");
+
+    let players = [];
+    let currentPlayerIndex = 0;    
+    let currentTurnPlayerIndex = 0; 
+    let roundCount = 1;
+    let danielAlive = true;
+    let gameOver = false;
+
+
+    let protectedPlayer = null;    
+    let interrogatedPlayer = null; 
+    let interrogatedRole = null;   
+    let skippedPlayer = null;      
+    let betrayalTarget = null;     
+    let danielHidingFrom = null;   
+
+    let meetingPhase = false; 
+
+    playerCountInput.addEventListener("input", () => {
+      playerCountDisplay.textContent = playerCountInput.value;
+    });
+
+    startButton.addEventListener("click", () => {
+      let count = parseInt(playerCountInput.value);
+      if (isNaN(count) || count < 4 || count > 6) return;
+
+      players = [];
+      currentPlayerIndex = 0;
+      currentTurnPlayerIndex = 0;
+      roundCount = 1;
+      danielAlive = true;
+      gameOver = false;
+      protectedPlayer = null;
+      interrogatedPlayer = null;
+      interrogatedRole = null;
+      skippedPlayer = null;
+      betrayalTarget = null;
+      danielHidingFrom = null;
+      meetingPhase = false;
+
+      let rolePool = ["Daniel", "König", "Engel", "Verräter"];
+      if (count === 5) rolePool.push("Engel");
+      if (count === 6) {
+        rolePool.push("Engel");
+        rolePool.push("Verräter");
+      }
+
+      rolePool = shuffle(rolePool);
+
+      for (let i = 0; i < count; i++) {
+        players.push({
+          name: `Spieler ${i + 1}`,
+          role: rolePool[i],
+          alive: true,
+        });
+      }
+
+      setup.classList.remove("active");
+      handover.classList.add("active");
+    });
+
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    handoverNext.addEventListener("click", () => {
+      handover.classList.remove("active");
+      roleReveal.classList.add("active");
+      showRole(currentPlayerIndex);
+    });
+
+    function showRole(index) {
+      const player = players[index];
+      roleName.textContent = player.role;
+      roleDescription.textContent = getRoleDescription(player.role);
+      playerNameInput.value = "";
+      playerNameInput.style.display = "block";
+      playerNameInput.focus();
+    }
+
+    revealNext.addEventListener("click", () => {
+      const inputName = playerNameInput.value.trim();
+      if (!inputName) {
+        alert("Bitte gib deinen Namen ein.");
+        return;
+      }
+      players[currentPlayerIndex].name = inputName;
+      playerNameInput.style.display = "none";
+
+      currentPlayerIndex++;
+      roleReveal.classList.remove("active");
+
+      if (currentPlayerIndex < players.length) {
+        handover.classList.add("active");
+      } else {
+        gameplay.classList.add("active");
+        currentTurnPlayerIndex = 0;
+        startRound();
+      }
+    });
+
+    function getRoleDescription(role) {
+      switch (role) {
+        case "Daniel":
+          return "Verstecke dich jede Runde vor den Verrätern. Überlebe bis Runde 4 oder wirf beide Verräter in die Grube!";
+        case "König":
+          return "Verhöre einen Spieler pro Nacht und entscheide, ob du Daniel helfen oder entlarven willst.";
+        case "Engel":
+          return "Beschütze jede Runde einen Spieler – du weißt nicht, wer Daniel ist.";
+        case "Verräter":
+          return "Finde heraus, wer Daniel ist, und wirf ihn in die Löwengrube!";
+      }
+      return "";
+    }
+
+    function startRound() {
+      if (gameOver) return;
+
+      updateGameStatus();
+
+      protectedPlayer = null;
+      interrogatedPlayer = null;
+      interrogatedRole = null;
+      skippedPlayer = null;
+      betrayalTarget = null;
+      danielHidingFrom = null;
+
+      meetingPhase = false;
+      currentTurnPlayerIndex = 0;
+      showPlayerTurn();
+    }
+
+    function updateGameStatus() {
+      const container = document.getElementById("roleActionContainer");
+
+      if (!danielAlive) {
+        gameStatus.textContent = `Runde ${roundCount} | Daniel wurde in die Löwengrube geworfen. Spiel beendet.`;
+        gameOver = true;
+        container.innerHTML = "";
+        gameNext.disabled = false;
+        gameNext.textContent = "Nächstes Spiel";
+        return;
+      }
+
+      const verräterAlive = players.some(p => p.alive && p.role === "Verräter");
+      if (!verräterAlive) {
+        gameStatus.textContent = `Runde ${roundCount} | Alle Verräter wurden rausgeworfen. Daniel gewinnt!`;
+        gameOver = true;
+        container.innerHTML = "";
+        gameNext.disabled = false;
+        gameNext.textContent = "Nächstes Spiel";
+        return;
+      }
+
+      if (roundCount > 4) {
+        gameStatus.textContent = `Runde ${roundCount} | Daniel hat alle Runden überlebt. Daniel gewinnt!`;
+        gameOver = true;
+        container.innerHTML = "";
+        gameNext.disabled = false;
+        gameNext.textContent = "Nächstes Spiel";
+        return;
+      }
+
+
+      gameStatus.textContent = `Runde ${roundCount} | Daniel ist ${danielAlive ? "am Leben" : "rausgeworfen"}`;
+    }
+
+
+    function getPlayerOrder() {
+
+      const engel = players.filter(p => p.alive && p.role === "Engel");
+      const koenig = players.filter(p => p.alive && p.role === "König");
+      const verraeter = players.filter(p => p.alive && p.role === "Verräter");
+      const daniel = players.filter(p => p.alive && p.role === "Daniel");
+
+      return [...engel, ...koenig, ...verraeter, ...daniel];
+    }
+
+    function showPlayerTurn() {
+      if (gameOver) return;
+
+      if (meetingPhase) {
+        showMeetingPhase();
+        return;
+      }
+
+      let order = getPlayerOrder();
+
+      if (order.length === 0) {
+        alert("Keine Spieler mehr am Leben. Spiel beendet.");
+        gameOver = true;
+        updateGameStatus();
+        return;
+      }
+
+      if (currentTurnPlayerIndex >= order.length) {
+        
+        meetingPhase = true;
+        showMeetingPhase();
+        return;
+      }
+
+      const player = order[currentTurnPlayerIndex];
+
+      if (!player.alive) {
+        currentTurnPlayerIndex++;
+        showPlayerTurn();
+        return;
+      }
+
+      if (skippedPlayer && skippedPlayer.name === player.name) {
+        alert(`${skippedPlayer.name} wurde vom König ausgesetzt und überspringt diesen Zug.`);
+        currentTurnPlayerIndex++;
+        showPlayerTurn();
+        return;
+      }
+
+      roleActionContainer.innerHTML = "";
+      const headline = document.createElement("h3");
+      headline.textContent = `Aktion für ${player.name} (${player.role})`;
+      roleActionContainer.appendChild(headline);
+
+      switch (player.role) {
+        case "Daniel":
+          const label = document.createElement("label");
+          label.textContent = "Vor wem möchtest du dich verstecken?";
+          const select = document.createElement("select");
+          select.id = "hideSelect";
+          players.filter(p => p.name !== player.name && p.alive).forEach(p => {
+            const option = document.createElement("option");
+            option.value = p.name;
+            option.textContent = p.name;
+            select.appendChild(option);
+          });
+          roleActionContainer.appendChild(label);
+          roleActionContainer.appendChild(document.createElement("br"));
+          roleActionContainer.appendChild(select);
+          break;
+
+        case "König":
+          const interrogateLabel = document.createElement("label");
+          interrogateLabel.textContent = "Wen willst du verhören?";
+          const interrogateSelect = document.createElement("select");
+          interrogateSelect.id = "interrogateSelect";
+          players.filter(p => p.name !== player.name && p.alive).forEach(p => {
+            const option = document.createElement("option");
+            option.value = p.name;
+            option.textContent = p.name;
+            interrogateSelect.appendChild(option);
+          });
+          roleActionContainer.appendChild(interrogateLabel);
+          roleActionContainer.appendChild(document.createElement("br"));
+          roleActionContainer.appendChild(interrogateSelect);
+          break;
+
+        case "Engel":
+          const protectLabel = document.createElement("label");
+          protectLabel.textContent = "Wen möchtest du beschützen?";
+          const protectSelect = document.createElement("select");
+          protectSelect.id = "protectSelect";
+          players.filter(p => p.alive).forEach(p => {
+            const option = document.createElement("option");
+            option.value = p.name;
+            option.textContent = p.name;
+            protectSelect.appendChild(option);
+          });
+          roleActionContainer.appendChild(protectLabel);
+          roleActionContainer.appendChild(document.createElement("br"));
+          roleActionContainer.appendChild(protectSelect);
+          break;
+
+        case "Verräter":
+          const betrayLabel = document.createElement("label");
+          betrayLabel.textContent = "Wen möchtest du in die Grube werfen?";
+          const betraySelect = document.createElement("select");
+          betraySelect.id = "betraySelect";
+          players.filter(p => p.name !== player.name && p.alive && p.role !== "Verräter"
+).forEach(p => {
+            const option = document.createElement("option");
+            option.value = p.name;
+            option.textContent = p.name;
+            betraySelect.appendChild(option);
+          });
+          roleActionContainer.appendChild(betrayLabel);
+          roleActionContainer.appendChild(document.createElement("br"));
+          roleActionContainer.appendChild(betraySelect);
+          break;
+      }
+      gameNext.disabled = false;
+    }
+
+    function showMeetingPhase() {
+      roleActionContainer.innerHTML = "";
+      const headline = document.createElement("h3");
+      headline.textContent = "Meeting: Wähle einen Spieler zum Rauswurf aus";
+      roleActionContainer.appendChild(headline);
+
+      const meetingSelect = document.createElement("select");
+      meetingSelect.id = "meetingSelect";
+
+      players.filter(p => p.alive).forEach(p => {
+        const option = document.createElement("option");
+        option.value = p.name;
+        option.textContent = p.name;
+        meetingSelect.appendChild(option);
+      });
+
+      roleActionContainer.appendChild(meetingSelect);
+      gameNext.disabled = false;
+    }
+
+    gameNext.addEventListener("click", () => {
+      if (gameOver) {
+        location.reload();
+        return;
+      }
+
+      if (meetingPhase) {
+
+        const meetingSelect = document.getElementById("meetingSelect");
+        if (!meetingSelect) return;
+
+        const nameToRemove = meetingSelect.value;
+        const playerToRemove = players.find(p => p.name === nameToRemove);
+
+        if (playerToRemove) {
+          playerToRemove.alive = false;
+          alert(`${playerToRemove.name} wurde beim Meeting rausgeworfen!`);
+
+          if (playerToRemove.role === "Daniel") {
+            danielAlive = false;
+            alert("Daniel wurde rausgeworfen! Verräter gewinnen!");
+            gameOver = true;
+            updateGameStatus();
+            return;
+          }
+
+
+          const verräterAlive = players.some(p => p.alive && p.role === "Verräter");
+          if (!verräterAlive) {
+            alert("Alle Verräter sind rausgeworfen! Daniel gewinnt!");
+            gameOver = true;
+            updateGameStatus();
+            return; 
+          }
+        }
+
+        meetingPhase = false;
+        roundCount++;
+        updateGameStatus();
+
+        if (gameOver) {
+          return;
+        }
+
+        startRound();
+        return;
+      }
+
+
+      let order = getPlayerOrder();
+      if (currentTurnPlayerIndex >= order.length) return;
+
+      const player = order[currentTurnPlayerIndex];
+
+      switch (player.role) {
+        case "Daniel":
+          const hideSelect = document.getElementById("hideSelect");
+          if (hideSelect) danielHidingFrom = hideSelect.value;
+          break;
+
+        case "König":
+          const interrogateSelect = document.getElementById("interrogateSelect");
+          if (interrogateSelect) {
+            const name = interrogateSelect.value;
+            interrogatedPlayer = players.find(p => p.name === name);
+            if (interrogatedPlayer) {
+              interrogatedRole = interrogatedPlayer.role;
+              alert(`Der König verhört ${interrogatedPlayer.name}. Rolle: ${interrogatedRole}`);
+            }
+          }
+          break;
+
+        case "Engel":
+          const protectSelect = document.getElementById("protectSelect");
+          if (protectSelect) {
+            const name = protectSelect.value;
+            protectedPlayer = players.find(p => p.name === name);
+            alert(`Der Engel schützt ${protectedPlayer.name}`);
+          }
+          break;
+
+        case "Verräter":
+          const betraySelect = document.getElementById("betraySelect");
+          if (betraySelect) {
+            const name = betraySelect.value;
+            betrayalTarget = players.find(p => p.name === name);
+            if (betrayalTarget && betrayalTarget.alive) {
+              if (protectedPlayer && betrayalTarget.name === protectedPlayer.name) {
+                alert(`${betrayalTarget.name} wurde vom Engel geschützt und entkommt der Grube!`);
+              } else {
+                betrayalTarget.alive = false;
+                alert(`${betrayalTarget.name} wurde in die Grube geworfen!`);
+                if (betrayalTarget.role === "Daniel") {
+                  danielAlive = false;
+                  alert("Daniel ist raus! Verräter gewinnen!");
+                  gameOver = true;
+                }
+              }
+            }
+          }
+          break;
+      }
+
+      currentTurnPlayerIndex++;
+      showPlayerTurn();
+    });
+      const slider = document.getElementById("playerCount");
+      const clickSound = new Audio("/assets/resources/audio/playerCount.mp3");
+
+      slider.addEventListener("input", () => {
+        clickSound.currentTime = 0; 
+        clickSound.play();
+      });
+    
+    const backgroundMusic = document.getElementById("backgroundMusic");
+
+    startButton.addEventListener("click", () => {
+      backgroundMusic.volume = 0.3;
+      backgroundMusic.loop = true;
+      backgroundMusic.play();
+    });
+
+
+  </script>
+</body>
+
+</html>
