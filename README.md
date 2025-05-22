@@ -14,56 +14,56 @@
 
 **Nachtphase:**
 
-        Alle schließen die Augen.
+Alle schließen die Augen.
         
-        Der Spielleiter sagt:
+Der Spielleiter sagt:
     
-        - Engel, öffnet eure Augen. Wen wollt ihr beschützen?
+- Engel, öffnet eure Augen. Wen wollt ihr beschützen?
         
-        - Daniel öffne die Augen. Vor wem möchtest du dich verstecken?
+- Daniel öffne die Augen. Vor wem möchtest du dich verstecken?
         
-        - Verräter, öffnet eure Augen. Auf wen zeigt ihr? (Wenn Daniel einen Schutz hat oder sich vor dir versteckst,
-        dann wird auch gesagt, dass die Stimme falsch war)
+- Verräter, öffnet eure Augen. Auf wen zeigt ihr? (Wenn Daniel einen Schutz hat oder sich vor dir versteckst,
+dann wird auch gesagt, dass die Stimme falsch war)
         
-        - König, öffne die Augen. Wen willst du verhören? / Wen willst du für die nächste Runde aussetzen?
+- König, öffne die Augen. Wen willst du verhören? / Wen willst du für die nächste Runde aussetzen?
 
 
-        **Tagphase:**
+**Tagphase:**
         
-        Alle öffnen die Augen.
+Alle öffnen die Augen.
         
-        Der Spielleiter gibt bekannt, was in der Nacht passiert ist (der Engel hat jemanden Schutz gegeben / der König
-        hat
-        jemanden verhört / der König hat jemanden ausgesetzt / die Verräter haben jemanden in die Grube geschmissen –
-        war
-         es Daniel oder nicht Daniel).
+Der Spielleiter gibt bekannt, was in der Nacht passiert ist (der Engel hat jemanden Schutz gegeben / der König hat
         
-        Diskussion unter allen Spielern: Wer ist Daniel? Wer lügt?
+jemanden verhört / der König hat jemanden ausgesetzt / die Verräter haben jemanden in die Grube geschmissen –
+war
+es Daniel oder nicht Daniel).
         
-        Jeder darf Vorschläge machen, wer in die Grube kommt.
+Diskussion unter allen Spielern: Wer ist Daniel? Wer lügt?
+        
+Jeder darf Vorschläge machen, wer in die Grube kommt.
 
-        **Ziel von Daniel:**
+**Ziel von Daniel:**
         
-        - Beide Verräter in die Grube werfen.
+- Beide Verräter in die Grube werfen.
         
-        - Überleben bis zum Tag 4.
+- Überleben bis zum Tag 4.
 
 
-        **Ziel von den Verrätern:**
+**Ziel von den Verrätern:**
         
-        - Herausfinden, wer Daniel ist.
+- Herausfinden, wer Daniel ist.
         
-        - Daniel in die Löwengrube werfen.
+- Daniel in die Löwengrube werfen.
 
-        **Ziel von den Engeln:**
+**Ziel von den Engeln:**
         
-        Daniel beschützen und versuchen, ihn in den Diskussionen unauffällig zu verteidigen (vielleicht versuchen zu
-        sagen,
-        dass andere Daniel sind, damit jemand anders gewählt wird).
+Daniel beschützen und versuchen, ihn in den Diskussionen unauffällig zu verteidigen (vielleicht versuchen zu
+sagen,
+dass andere Daniel sind, damit jemand anders gewählt wird).
 
-        **Ziel vom König:**
+**Ziel vom König:**
         
-        Er kann entscheiden, ob er versucht, Daniel in die Löwengrube zu werfen oder ihn zu beschützen.
+Er kann entscheiden, ob er versucht, Daniel in die Löwengrube zu werfen oder ihn zu beschützen.
 
 
 ### Rollen:
@@ -72,47 +72,49 @@
 #### Verräter
 
 
-          ***Aufgabe:**
+**Aufgabe:**
           
-          Versuche Daniel zu enttarnen und in die Grube zu werfen.
+Versuche Daniel zu enttarnen und in die Grube zu werfen.
           
-          **Fähigkeit:**
+**Fähigkeit:**
           
-          Bei Zustimmung beider Verräter kann eine Person ohne Abstimmung in die Grube geworfen werden.
-          Ist die rausgeworfene Person nicht Daniel, haben die Verräter verloren.
+Bei Zustimmung beider Verräter kann eine Person ohne Abstimmung in die Grube geworfen werden.
+
+Ist die rausgeworfene Person nicht Daniel, haben die Verräter verloren.
 
 
 #### Daniel
 
-          **Aufgabe:**
+**Aufgabe:**
           
-          Versuche, nicht enttarnt zu werden.
+Versuche, nicht enttarnt zu werden.
           
-          **Fähigkeit:**
+**Fähigkeit:**
           
-          Hat jede Runde die Möglichkeit, sich vor einem Verräter zu verstecken.
+Hat jede Runde die Möglichkeit, sich vor einem Verräter zu verstecken.
 
 
 #### König
 
-          **Aufgabe:**
+**Aufgabe:**
           
-          Hat die Möglichkeit, entweder Daniel zu beschützen oder dabei zu helfen, ihn in die Grube zu
-          werfen.
+Hat die Möglichkeit, entweder Daniel zu beschützen oder dabei zu helfen, ihn in die Grube zu
+ werfen.
           
-          **Fähigkeit:**
+**Fähigkeit:**
           
-          Kann einen Spieler pro Zug verhören (seine Rolle wird ihm offenbart).
-          Kann eine Person pro Runde aussetzen lassen.
+Kann einen Spieler pro Zug verhören (seine Rolle wird ihm offenbart).
+
+Kann eine Person pro Runde aussetzen lassen.
 
 
 #### Engel
 
-          **Aufgabe:**
+**Aufgabe:**
           
-          Versucht, Daniel zu beschützen (weiß nicht, wer Daniel ist).
+Versucht, Daniel zu beschützen (weiß nicht, wer Daniel ist).
           
-          **Fähigkeit:**
+**Fähigkeit:**
           
-          Kann jede Runde einem Spieler ein Schild geben (diese Person kann für eine Runde nicht in die Grube geworfen
-          werden).
+Kann jede Runde einem Spieler ein Schild geben (diese Person kann für eine Runde nicht in die Grube geworfen
+werden).
