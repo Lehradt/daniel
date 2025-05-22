@@ -12,6 +12,8 @@
 
 ### Spielregeln & Spielablauf:
 
+*4-6 Spieler*
+
 **Nachtphase:**
 
 Alle schließen die Augen.
@@ -69,7 +71,7 @@ Er kann entscheiden, ob er versucht, Daniel in die Löwengrube zu werfen oder ih
 ### Rollen:
 
 
-#### Verräter
+#### Verräter (max. 2)
 
 
 **Aufgabe:**
@@ -83,7 +85,7 @@ Bei Zustimmung beider Verräter kann eine Person ohne Abstimmung in die Grube ge
 Ist die rausgeworfene Person nicht Daniel, haben die Verräter verloren.
 
 
-#### Daniel
+#### Daniel (max. 1)
 
 **Aufgabe:**
           
@@ -94,7 +96,7 @@ Versuche, nicht enttarnt zu werden.
 Hat jede Runde die Möglichkeit, sich vor einem Verräter zu verstecken.
 
 
-#### König
+#### König (max. 1)
 
 **Aufgabe:**
           
@@ -108,7 +110,7 @@ Kann einen Spieler pro Zug verhören (seine Rolle wird ihm offenbart).
 Kann eine Person pro Runde aussetzen lassen.
 
 
-#### Engel
+#### Engel (max. 2)
 
 **Aufgabe:**
           
