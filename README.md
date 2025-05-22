@@ -4,8 +4,10 @@
 
 *web implematation by Fabian Lehradt*
 
+
 ### Schnickschnack:
 
 **[Fabian Lehradt](https://lehradt.github.io/profile)**
+
 
 ### Spielregeln & Spielablauf:
