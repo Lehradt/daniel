@@ -1,7 +1,7 @@
 CREDITS
 --------------------------------------
 Project: Daniel in der Löwengrube
-Ein Spiel von: Lennox Milenkovic
+Ein Spiel von: Lennox Milenkovic, Lennart Jacobs
 Web-Umsetzung: Fabian Lehradt
 Datum: 22.05.2025
 --------------------------------------
