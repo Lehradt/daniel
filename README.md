@@ -1,6 +1,6 @@
 # Daniel in der Löwengrube
 
-*a game by Lennox Milenkovic*
+*a game by Lennox Milenkovic, Lennart Jacobs*
 
 *web implematation by Fabian Lehradt*
 
