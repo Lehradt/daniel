@@ -192,6 +192,7 @@
       background: #F4DFC0;
       display: flex;
       justify-content: center;
+      text-align: center;
       align-items: center;
       font-size: 0.85rem;
       color: #5a6b37;
@@ -200,7 +201,7 @@
     }
     footer a{
        text-decoration: none;
-       color: #5a6b37;
+       color: #444;
        margin-left: 2px;
     }
     #protectSelect,
