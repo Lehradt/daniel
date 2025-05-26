@@ -198,6 +198,11 @@
       user-select: none;
       box-shadow: 0 -2px 5px rgb(0 0 0 / 0.1);
     }
+    footer a{
+       text-decoration: none;
+       color: #5a6b37;
+       margin-left: 2px;
+    }
     #protectSelect,
     #interrogateSelect,
     #hideSelect,
